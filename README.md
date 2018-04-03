@@ -2,12 +2,13 @@
 
 Although computers are excellent at sorting things, naive alphabetical sorts give famously counter-intuitive results. Alphabetize seeks to provide a flexible alternative based on the guidelines book editors use to alphabetize lists.
 
+Alphabetization guidelines taken from the Chicago Manual of Style, 15th edition.
 
 ## Usage
 
-Alphabetize provides a bunch of options based on your use cases.
+Alphabetize provides a comparator for sorting strings with `sort` or storing them in sorted data structures. The function `alphabetize`, when given two arguments, will act as a comparator with the defaults listed below; when given a single argument, it will interpret it as a map of options and return an appropriate comparator. These are the available options:
 
-* `:sort-mode` The :sort-mode option takes two options: `:letter-by-letter` and `:word-by-word`. Letter-by-letter sorts strings as though every string were a single word; word-by-word sort sorts multiple-word phrases together by initial words. Thus, in letter-by-letter sort, "New Zealand" comes after "Newton", becauze Z comes after T; in word-by-word sort, "New Zealnad" comes before "Newton" because all phrases beginning with the word "new" come before words beginning the with the letters n-e-w. Default is `:word-by-word`.
+* `:sort-mode` The :sort-mode option takes two options: `:letter-by-letter` and `:word-by-word`. Letter-by-letter sorts strings as though every string were a single word; word-by-word sort sorts multiple-word phrases together by initial words. Thus, in letter-by-letter sort, "New Zealand" comes after "Newton", becauze Z comes after T; in word-by-word sort, "New Zealand" comes before "Newton" because all phrases beginning with the word "new" come before words beginning the with the letters n-e-w. Default is `:word-by-word`.
 * `:initial-number-sort` controls how strings that begin with numerals should be sorted, either `:numerically` or `:alphabetically`. If  they are sorted numerically, they will apear at the beginning of the sorted list. If they are sorted alphabetically, they will apear as though the numbers were spelled out. Default is `:alphabetically`.
 * `:internal-number-sort` controls how strings that contain numerals interally should be sorted, also either `:numerically` or `:alphabetically`. Default is `:numerically`.
 * `:years?`: If `:years?` is true, four-digit words will be evaluated for sorting as English speakers tend to say them, i.e. 1984 will be sorted sorted as Nineteen Eighty-Four rather than One Thousand Nine Hundred Eighty Four. Defaults to false.
